@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Un día con Dios - Devocional Infantil</title>
+  <meta name="description" content="Devocional bíblico para niños de 8 a 12 años. 28 días de reflexiones, versículos y actividades." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Patrick+Hand&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000;
+      color: #fff;
+      padding: 8px;
+      text-decoration: none;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    .site-header {
+      background: linear-gradient(135deg, #4DD0E1 0%, #F06292 100%);
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 40px;
+    }
+    .site-header h1 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 72px;
+      margin-bottom: 10px;
+    }
+    .site-header .lead {
+      font-family: 'Caveat', cursive;
+      font-size: 28px;
+      margin-bottom: 0;
+    }
+    .week-section {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .week-section h2 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 42px;
+      color: #F06292;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #4DD0E1;
+      padding-bottom: 10px;
+    }
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .day-card {
+      background: linear-gradient(135deg, #E0F7FA 0%, #F8BBD0 100%);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #333;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: block;
+    }
+    .day-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+    }
+    .day-card .day-number {
+      font-family: 'Amatic SC', cursive;
+      font-size: 36px;
+      font-weight: 700;
+      color: #F06292;
+      margin-bottom: 5px;
+    }
+    .day-card .day-title {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 16px;
+      color: #333;
+      line-height: 1.4;
+    }
+    .intro-section {
+      background: #FFF9C4;
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .intro-section p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .site-footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #666;
+      margin-top: 60px;
+    }
+    @media(max-width: 768px) {
+      .site-header h1 {
+        font-size: 48px;
+      }
+      .site-header .lead {
+        font-size: 22px;
+      }
+      .week-section h2 {
+        font-size: 32px;
+      }
+      .days-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="site-header" role="banner">
+    <img src="images/logo.svg" alt="Logo Un día con Dios" style="width: 120px; height: 120px; margin-bottom: 20px;">
+    <h1>⭐ Un día con Dios ⭐</h1>
+    <p class="lead">Devocional bíblico para niños de 8 a 12 años</p>
+  </header>
+
+  <main id="main" role="main" class="container">
+    <section class="intro-section">
+      <p><strong>¡Bienvenido a tu devocional!</strong></p>
+      <p>Cada día encontrarás un versículo bíblico, una lectura corta, preguntas para reflexionar, una actividad práctica y una oración.</p>
+      <p>Elige el día que quieras explorar y comienza tu tiempo con Dios.</p>
+    </section>
+
+    <section class="week-section">
+      <h2>📕 Semana 1 - Días 1 a 7</h2>
+      <div class="days-grid">
+        <a href="dias/dia1.html" class="day-card">
+          <div class="day-number">1</div>
+          <div class="day-title">El amor de Dios</div>
+        </a>
+        <a href="dias/dia2.html" class="day-card">
+          <div class="day-number">2</div>
+          <div class="day-title">La gratitud</div>
+        </a>
+        <a href="dias/dia3.html" class="day-card">
+          <div class="day-number">3</div>
+          <div class="day-title">Confianza en Dios</div>
+        </a>
+        <a href="dias/dia4.html" class="day-card">
+          <div class="day-number">4</div>
+          <div class="day-title">La bondad</div>
+        </a>
+        <a href="dias/dia5.html" class="day-card">
+          <div class="day-number">5</div>
+          <div class="day-title">El perdón</div>
+        </a>
+        <a href="dias/dia6.html" class="day-card">
+          <div class="day-number">6</div>
+          <div class="day-title">La obediencia</div>
+        </a>
+        <a href="dias/dia7.html" class="day-card">
+          <div class="day-number">7</div>
+          <div class="day-title">La fe</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="week-section">
+      <h2>📘 Semana 2 - Días 8 a 14</h2>
+      <div class="days-grid">
+        <a href="dias/dia8.html" class="day-card">
+          <div class="day-number">8</div>
+          <div class="day-title">Dios me cuida</div>
+        </a>
+        <a href="dias/dia9.html" class="day-card">
+          <div class="day-number">9</div>
+          <div class="day-title">Dios escucha mis oraciones</div>
+        </a>
+        <a href="dias/dia10.html" class="day-card">
+          <div class="day-number">10</div>
+          <div class="day-title">Dios me da valor</div>
+        </a>
+        <a href="dias/dia11.html" class="day-card">
+          <div class="day-number">11</div>
+          <div class="day-title">Dios me perdona</div>
+        </a>
+        <a href="dias/dia12.html" class="day-card">
+          <div class="day-number">12</div>
+          <div class="day-title">Dios me guía</div>
+        </a>
+        <a href="dias/dia13.html" class="day-card">
+          <div class="day-number">13</div>
+          <div class="day-title">Dios me ayuda a amar a los demás</div>
+        </a>
+        <a href="dias/dia14.html" class="day-card">
+          <div class="day-number">14</div>
+          <div class="day-title">Dios me da paz</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="week-section">
+      <h2>📗 Semana 3 - Días 15 a 21</h2>
+      <div class="days-grid">
+        <a href="dias/dia15.html" class="day-card">
+          <div class="day-number">15</div>
+          <div class="day-title">Dios me da alegría</div>
+        </a>
+        <a href="dias/dia16.html" class="day-card">
+          <div class="day-number">16</div>
+          <div class="day-title">Dios me hace fuerte</div>
+        </a>
+        <a href="dias/dia17.html" class="day-card">
+          <div class="day-number">17</div>
+          <div class="day-title">Dios está siempre conmigo</div>
+        </a>
+        <a href="dias/dia18.html" class="day-card">
+          <div class="day-number">18</div>
+          <div class="day-title">Dios me enseña a ser agradecido</div>
+        </a>
+        <a href="dias/dia19.html" class="day-card">
+          <div class="day-number">19</div>
+          <div class="day-title">Dios me ayuda a ser generoso</div>
+        </a>
+        <a href="dias/dia20.html" class="day-card">
+          <div class="day-number">20</div>
+          <div class="day-title">Dios me da esperanza</div>
+        </a>
+        <a href="dias/dia21.html" class="day-card">
+          <div class="day-number">21</div>
+          <div class="day-title">Dios me invita a descansar</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="week-section">
+      <h2>📙 Semana 4 - Días 22 a 28</h2>
+      <div class="days-grid">
+        <a href="dias/dia22.html" class="day-card">
+          <div class="day-number">22</div>
+          <div class="day-title">Dios me enseña a ser paciente</div>
+        </a>
+        <a href="dias/dia23.html" class="day-card">
+          <div class="day-number">23</div>
+          <div class="day-title">Dios me ayuda a ser honesto</div>
+        </a>
+        <a href="dias/dia24.html" class="day-card">
+          <div class="day-number">24</div>
+          <div class="day-title">Dios me enseña a perdonarme</div>
+        </a>
+        <a href="dias/dia25.html" class="day-card">
+          <div class="day-number">25</div>
+          <div class="day-title">Dios me da sabiduría</div>
+        </a>
+        <a href="dias/dia26.html" class="day-card">
+          <div class="day-number">26</div>
+          <div class="day-title">Dios me ayuda en las dificultades</div>
+        </a>
+        <a href="dias/dia27.html" class="day-card">
+          <div class="day-number">27</div>
+          <div class="day-title">Dios me enseña a ser humilde</div>
+        </a>
+        <a href="dias/dia28.html" class="day-card">
+          <div class="day-number">28</div>
+          <div class="day-title">Dios celebra conmigo</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>Un día con Dios - Devocional para niños y familias</p>
+    <p>Cada día es una oportunidad para crecer en fe</p>
+  </footer>
+</body>
+</html>

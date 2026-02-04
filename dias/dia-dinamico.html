@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cargando... | Un día con Dios</title>
+    <meta name="description" content="Devocional diario." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <header class="site-header" role="banner">
+        <div class="container">
+            <h1><i class="fa-solid fa-star icon-yellow"></i> Cargando...</h1>
+            <p class="lead">...</p>
+            <nav aria-label="Navegación del día">
+                <a href="../index.html" class="button"><i class="fa-solid fa-house icon-purple"></i> Volver al
+                    inicio</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main" role="main" class="container">
+        <section aria-labelledby="versiculo" class="card">
+            <h2 id="versiculo"><i class="fa-solid fa-book-bible icon-blue"></i> Versículo</h2>
+            <blockquote>
+                <p>...</p>
+                <footer>...</footer>
+            </blockquote>
+        </section>
+        <section aria-labelledby="lectura" class="card">
+            <h2 id="lectura"><i class="fa-solid fa-book-open icon-green"></i> Lectura</h2>
+            <!-- Content will be injected here -->
+        </section>
+        <section aria-labelledby="pensar" class="card">
+            <h2 id="pensar"><i class="fa-solid fa-lightbulb icon-yellow"></i> Para pensar</h2>
+            <ul></ul>
+        </section>
+        <section aria-labelledby="actividad" class="card">
+            <h2 id="actividad"><i class="fa-solid fa-palette icon-pink"></i> Actividad</h2>
+            <p>...</p>
+        </section>
+        <section aria-labelledby="oracion" class="card">
+            <h2 id="oracion"><i class="fa-solid fa-hands-praying icon-purple"></i> Oración</h2>
+            <p>...</p>
+        </section>
+        <section aria-labelledby="espacio" class="card">
+            <h2 id="espacio"><i class="fa-solid fa-pen-fancy icon-orange"></i> Espacio personal</h2>
+            <p>Escribe o dibuja aquí lo que quieras recordar:</p>
+            <textarea rows="7" aria-label="Espacio personal para escribir"
+                placeholder="Escribe tu lista de gratitud y cómo compartiste amor hoy..."></textarea>
+        </section>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <a href="../index.html" class="button"><i class="fa-solid fa-arrow-left"></i> Volver al inicio</a>
+            <p class="muted">Un día con Dios — Para familias y niños</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/db.js"></script>
+    <script src="../js/day_app.js"></script>
+</body>
+
+</html>

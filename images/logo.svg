@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Fondo circular con gradiente -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4DD0E1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F06292;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Círculo de fondo -->
+  <circle cx="100" cy="100" r="95" fill="url(#grad1)" opacity="0.9"/>
+
+  <!-- Biblia abierta -->
+  <g transform="translate(50, 60)">
+    <!-- Página izquierda -->
+    <rect x="0" y="0" width="45" height="60" fill="#fff" rx="2" stroke="#333" stroke-width="2"/>
+    <line x1="5" y1="10" x2="40" y2="10" stroke="#4DD0E1" stroke-width="2"/>
+    <line x1="5" y1="20" x2="40" y2="20" stroke="#4DD0E1" stroke-width="1"/>
+    <line x1="5" y1="26" x2="40" y2="26" stroke="#4DD0E1" stroke-width="1"/>
+    <line x1="5" y1="32" x2="35" y2="32" stroke="#4DD0E1" stroke-width="1"/>
+
+    <!-- Página derecha -->
+    <rect x="55" y="0" width="45" height="60" fill="#fff" rx="2" stroke="#333" stroke-width="2"/>
+    <line x1="60" y1="10" x2="95" y2="10" stroke="#F06292" stroke-width="2"/>
+    <line x1="60" y1="20" x2="95" y2="20" stroke="#F06292" stroke-width="1"/>
+    <line x1="60" y1="26" x2="95" y2="26" stroke="#F06292" stroke-width="1"/>
+    <line x1="60" y1="32" x2="90" y2="32" stroke="#F06292" stroke-width="1"/>
+
+    <!-- Lomo -->
+    <rect x="45" y="0" width="10" height="60" fill="#333"/>
+  </g>
+
+  <!-- Corazón decorativo -->
+  <path d="M100 140 C90 130, 80 130, 75 135 C70 140, 70 145, 75 150 L100 170 L125 150 C130 145, 130 140, 125 135 C120 130, 110 130, 100 140 Z"
+        fill="#FFF9C4"
+        stroke="#F06292"
+        stroke-width="2"/>
+
+  <!-- Estrellas decorativas -->
+  <text x="30" y="40" font-size="20" fill="#FFF9C4">✨</text>
+  <text x="160" y="40" font-size="20" fill="#FFF9C4">✨</text>
+  <text x="170" y="160" font-size="16" fill="#FFF9C4">⭐</text>
+  <text x="20" y="170" font-size="16" fill="#FFF9C4">⭐</text>
+</svg>

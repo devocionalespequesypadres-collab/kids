@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un día con Dios - Devocional Infantil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="styles.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Patrick+Hand&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Un devocional bíblico para niños de 8 a 12 años: enseñanzas, versículos y actividades para cada día.">
+</head>
+<body>
+    <a class="skip-link" href="#content">Saltar al contenido</a>
+    <main class="container" id="content" role="main">
+        <!-- Las páginas se generan dinámicamente con JS -->
+    </main>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="prevPage()" id="prevBtn" aria-label="Página anterior">← Anterior</button>
+        <span class="page-counter" id="counter">Página 1 de 1</span>
+        <button class="nav-btn" onclick="nextPage()" id="nextBtn" aria-label="Página siguiente">Siguiente →</button>
+    </div>
+
+    <script>
+        // Datos de cada día / página
+        const pagesData = [
+            {
+                title: 'Portada',
+                hero: true,
+                heading: 'Un día con Dios',
+                subheading: '✨ Devocional bíblico ✨',
+                note: '📖 8 a 12 años'
+            },
+            {
+                title: 'Tema 1: El amor de Dios',
+                verse: '"Dios es amor." (1 Juan 4:8)',
+                text: 'Día 1 - Dios me ama siempre.',
+                explicacion: 'Dios nos ama de forma incondicional y quiere que sepamos que su amor está presente en nuestras vidas. Podemos confiar en ese amor y compartirlo con los demás.',
+                actividad: 'Haz una lista de 3 cosas por las que estás agradecido hoy y compártelas con tu familia.'
+            },
+            {
+                title: 'Tema 2: La gratitud',
+                verse: '"Dad gracias en todo." (1 Tesalonicenses 5:18)',
+                text: 'Día 2 - Aprender a dar gracias a Dios por las pequeñas cosas.',
+                explicacion: 'Agradecer nos ayuda a ver las bendiciones diarias y a reconocer la bondad de Dios. La gratitud cambia nuestra actitud y nos hace más felices.',
+                actividad: 'Escribe una nota de agradecimiento para alguien que te haya ayudado esta semana.'
+            },
+            {
+                title: 'Tema 3: Confianza en Dios',
+                verse: '"Confía en el Señor con todo tu corazón." (Proverbios 3:5)',
+                text: 'Día 3 - Enseñanzas sobre confiar en Dios.',
+                explicacion: 'Confiar en Dios significa pedir su ayuda y creer que Él nos guía, incluso cuando no entendemos todo. La fe se practica día a día con pequeñas decisiones.',
+                actividad: 'Piensa en una preocupación y ora pidiéndole a Dios que te ayude; anota cómo te sientes después.'
+            },
+            {
+                title: 'Tema 4: La bondad',
+                verse: '"Sed bondadosos unos con otros." (Efesios 4:32)',
+                text: 'Día 4 - Actividades para practicar la bondad.',
+                explicacion: 'Ser bondadosos significa tratar a los demás con cariño y respeto, como Dios nos trata a nosotros. Las acciones pequeñas pueden hacer grandes diferencias en la vida de alguien.',
+                actividad: 'Haz una buena acción hoy: ayuda a un familiar en una tarea sin que te lo pidan.'
+            },
+            {
+                title: 'Tema 5: El perdón',
+                verse: '"Perdona y serás perdonado."',
+                text: 'Día 5 - Por qué es importante perdonar.',
+                explicacion: 'Perdonar libera nuestro corazón del rencor y nos ayuda a sanar. Dios nos enseña a perdonar así como Él nos perdona.',
+                actividad: 'Si alguien te lastimó, escribe una carta (aunque no la envíes) expresando tus sentimientos y tu decisión de perdonar.'
+            },
+            {
+                title: 'Tema 6: La obediencia',
+                verse: '"Obedece a tus padres."',
+                text: 'Día 6 - Aprender obediencia con amor.',
+                explicacion: 'Obedecer con respeto fortalece la confianza y el amor en la familia. La obediencia también es una forma de mostrar gratitud a quienes nos cuidan.',
+                actividad: 'Ayuda en una tarea del hogar sin que te lo pidan y observa cómo reacciona tu familia.'
+            },
+            {
+                title: 'Tema 7: La fe',
+                verse: '"La fe mueve montañas."',
+                text: 'Día 7 - Historias para fortalecer la fe.',
+                explicacion: 'La fe nos da esperanza y nos ayuda a enfrentar retos. Leer historias de confianza en Dios fortalece nuestro valor y esperanza.',
+                actividad: 'Cuenta una historia bíblica a un amigo o familiar y habla de la lección que aprendiste.'
+            },
+            {
+                title: 'Tema 8: La esperanza',
+                verse: '"La esperanza no defrauda."',
+                text: 'Día 8 - Mantener la esperanza en Dios.',
+                explicacion: 'La esperanza nos sostiene cuando las cosas son difíciles; es confiar en que Dios tiene un plan bueno para nosotros. Mantener la esperanza nos ayuda a perseverar.',
+                actividad: 'Haz un dibujo que represente algo que esperas con alegría y colócalo en tu cuarto.'
+            },
+            {
+                title: 'Tema 9: Servicio a los demás',
+                verse: '"Ama a tu prójimo como a ti mismo."',
+                text: 'Día 9 - Actividades para servir en casa.',
+                explicacion: 'Servir a los demás muestra el amor de Dios en acción. Cuando ayudamos con humildad, hacemos del mundo un lugar mejor.',
+                actividad: 'Organiza una pequeña acción de servicio en casa: ordena, comparte juguetes o ayuda a un hermano.'
+            },
+            {
+                title: 'Tema 10: Tiempo de oración',
+                verse: '"Orad sin cesar."',
+                text: 'Día 10 - Cómo enseñar a los niños a orar.',
+                explicacion: 'La oración es conversar con Dios; en ella podemos agradecer, pedir y escuchar. Enseñar a los niños a orar les da herramientas para su vida espiritual.',
+                actividad: 'Crea una lista de oraciones sencilla y ora por cada punto durante la semana.'
+            }
+        ];
+
+        const totalPages = pagesData.length;
+        let currentPage = 0;
+
+        function createPages() {
+            const container = document.getElementById('content');
+            pagesData.forEach((p, i) => {
+                const page = document.createElement('div');
+                page.className = 'page';
+                page.id = `page-${i}`;
+
+                if (p.hero) {
+                    page.innerHTML = `
+                        <div class="hero">
+                            <h1>${p.heading}</h1>
+                            <h2>${p.subheading}</h2>
+                            <p>${p.note}</p>
+                        </div>
+                    `;
+                } else {
+                    page.innerHTML = `
+                        <h1>${p.title}</h1>
+                        ${p.verse ? `<div class="versiculo">${p.verse}</div>` : ''}
+                        <p>${p.text}</p>
+                        ${p.explicacion ? `<div class="explicacion"><strong>Explicación:</strong> ${p.explicacion}</div>` : ''}
+                        ${p.actividad ? `<div class="actividad"><strong>Actividad:</strong> ${p.actividad}</div>` : ''}
+                    `;
+                }
+
+                container.appendChild(page);
+            });
+        }
+
+        function showPage(n) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const el = document.getElementById(`page-${n}`);
+            if (!el) return;
+            el.classList.add('active');
+            document.getElementById('counter').textContent = `Página ${n + 1} de ${totalPages}`;
+            document.getElementById('prevBtn').disabled = n === 0;
+            document.getElementById('nextBtn').disabled = n === totalPages - 1;
+            currentPage = n;
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages - 1) showPage(currentPage + 1);
+        }
+
+        function prevPage() {
+            if (currentPage > 0) showPage(currentPage - 1);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextPage();
+            if (e.key === 'ArrowLeft') prevPage();
+        });
+
+        // Inicializar
+        createPages();
+        showPage(0);
+    </script>
+</body>
+</html>

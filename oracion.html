@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Muro de Oración | Un día con Dios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Patrick+Hand&family=Caveat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <header class="site-header" role="banner">
+        <div class="container">
+            <h1><i class="fa-solid fa-hands-praying"></i> Muro de Oración</h1>
+            <p class="lead">Oramos unos por otros</p>
+            <nav style="margin-top: 20px;">
+                <a href="index.html" class="button"><i class="fa-solid fa-house"></i> Volver al Inicio</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="margin-top: 30px;">
+
+        <div class="card">
+            <h2><i class="fa-solid fa-heart"></i> ¿Por qué orar hoy?</h2>
+            <p>Dios nos escucha siempre. Aquí puedes escribir tu petición para que oremos juntos, o simplemente dar
+                gracias por algo bueno que te pasó.</p>
+
+            <form style="margin-top: 20px;">
+                <div style="margin-bottom: 15px;">
+                    <label style="display:block; font-weight:bold; margin-bottom:5px;"><i class="fa-solid fa-user"></i>
+                        Tu Nombre (Opcional):</label>
+                    <input type="text" style="width: 100%; padding: 10px; border-radius: 10px; border: 2px solid #ddd;"
+                        placeholder="Ej. Juan">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display:block; font-weight:bold; margin-bottom:5px;"><i class="fa-solid fa-pen"></i>
+                        ¿Cuál es tu petición o
+                        agradecimiento?</label>
+                    <textarea rows="5" style="width: 100%; padding: 10px; border-radius: 10px; border: 2px solid #ddd;"
+                        placeholder="Escribe aquí tu oración..."></textarea>
+                </div>
+
+                <button type="button" class="button"
+                    style="background:#4DD0E1; color:white; border:none; cursor:pointer;"
+                    onclick="alert('¡Gracias! Tu petición ha sido anotada. Dios te bendiga.')"><i
+                        class="fa-solid fa-paper-plane"></i> Enviar Oración</button>
+            </form>
+        </div>
+
+        <div class="card" style="background: #E0F7FA;">
+            <h2><i class="fa-solid fa-book-bible"></i> Versículos sobre la Oración</h2>
+            <ul>
+                <li><strong>Filipenses 4:6</strong> - "No se inquieten por nada; más bien, en toda ocasión, con oración
+                    y ruego, presenten sus peticiones a Dios."</li>
+                <li><strong>1 Tesalonicenses 5:17</strong> - "Oren sin cesar."</li>
+                <li><strong>Santiago 5:16</strong> - "La oración eficaz del justo puede mucho."</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>Un día con Dios - Devocional para niños y familias</p>
+    </footer>
+</body>
+
+</html>

@@ -9,1048 +9,345 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Patrick+Hand&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --pastel-pink: #FFB5C5;
-      --pastel-blue: #B5D8EB;
-      --pastel-green: #B5EAD7;
-      --pastel-yellow: #FFEAA7;
-      --pastel-purple: #DDA0DD;
-      --pastel-orange: #FFCBA4;
-      --pastel-mint: #98D8C8;
-      --pastel-lavender: #E6E6FA;
-      --pastel-peach: #FFDAB9;
-      --pastel-coral: #F7CAC9;
-
-      --color-primary: #7EC8E3;
-      --color-secondary: #FF9A9E;
-      --color-accent: #FFF5BA;
-      --color-bg-light: #F0F8FF;
-      --color-bg-gradient: linear-gradient(135deg, #FFECD2 0%, #FCB69F 50%, #FFEAA7 100%);
-      --color-text: #5D5D5D;
-      --color-white: #fff;
-
-      --font-display: 'Amatic SC', cursive;
-      --font-body: 'Patrick Hand', cursive;
-      --font-handwriting: 'Caveat', cursive;
-
-      --shadow-soft: 0 4px 15px rgba(0,0,0,0.08);
-      --shadow-medium: 0 6px 20px rgba(0,0,0,0.12);
-      --shadow-hover: 0 8px 25px rgba(0,0,0,0.15);
-      --border-radius: 20px;
-      --transition: all 0.3s ease;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--color-bg-gradient);
-      background-attachment: fixed;
-      min-height: 100vh;
-      color: var(--color-text);
-      line-height: 1.7;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* ===== HEADER ===== */
-    .site-header {
-      background: linear-gradient(135deg, var(--pastel-pink) 0%, var(--pastel-purple) 50%, var(--pastel-blue) 100%);
-      color: white;
-      padding: 50px 20px 40px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      border-radius: 0 0 50px 50px;
-      box-shadow: var(--shadow-medium);
-    }
-
-    .header-decoration {
-      position: absolute;
-      font-size: 60px;
-      opacity: 0.3;
-      animation: float 4s ease-in-out infinite;
-    }
-    .header-decoration.star1 { top: 20px; left: 10%; animation-delay: 0s; }
-    .header-decoration.star2 { top: 60px; right: 15%; animation-delay: 1s; }
-    .header-decoration.star3 { bottom: 30px; left: 20%; animation-delay: 2s; }
-    .header-decoration.heart1 { top: 40px; right: 25%; animation-delay: 0.5s; font-size: 40px; }
-    .header-decoration.heart2 { bottom: 20px; right: 10%; animation-delay: 1.5s; font-size: 35px; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(5deg); }
-    }
-
-    .site-header h1 {
-      font-family: var(--font-display);
-      font-size: clamp(48px, 10vw, 80px);
-      font-weight: 700;
-      margin-bottom: 10px;
-      text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
-      position: relative;
-      z-index: 1;
-    }
-
-    .site-header .lead {
-      font-family: var(--font-handwriting);
-      font-size: clamp(22px, 5vw, 32px);
-      margin-bottom: 15px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .site-header .subtitle {
-      font-size: 16px;
-      opacity: 0.95;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ===== NAVEGACION PRINCIPAL ===== */
-    .main-nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 30px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .nav-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: white;
-      color: var(--color-text);
-      padding: 12px 22px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      transition: var(--transition);
-      box-shadow: var(--shadow-soft);
-      border: 2px solid transparent;
-    }
-
-    .nav-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .nav-btn.pink { background: var(--pastel-pink); color: #8B4557; }
-    .nav-btn.blue { background: var(--pastel-blue); color: #4A6B7C; }
-    .nav-btn.green { background: var(--pastel-green); color: #4A7C6D; }
-    .nav-btn.yellow { background: var(--pastel-yellow); color: #8B7355; }
-    .nav-btn.purple { background: var(--pastel-purple); color: #6B4A6B; }
-    .nav-btn.orange { background: var(--pastel-orange); color: #8B6B4A; }
-
-    /* ===== SECCION BIENVENIDA ===== */
-    .welcome-section {
-      background: white;
-      border-radius: var(--border-radius);
-      padding: 40px;
-      margin: 40px auto;
-      max-width: 900px;
-      text-align: center;
-      box-shadow: var(--shadow-soft);
-      border: 3px solid var(--pastel-yellow);
-    }
-
-    .welcome-section h2 {
-      font-family: var(--font-display);
-      font-size: 42px;
-      color: var(--color-secondary);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .welcome-section p {
-      font-size: 18px;
-      margin-bottom: 15px;
-      color: var(--color-text);
-    }
-
-    .welcome-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
+    /* Estilos adicionales para iconos cristianos estilizados */
+    .icon-circle {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
-    }
-
-    /* ===== SEMANAS ===== */
-    .week-container {
-      margin: 40px 0;
-    }
-
-    .week-header {
-      background: white;
-      border-radius: var(--border-radius);
-      padding: 25px 30px;
-      margin-bottom: 25px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      box-shadow: var(--shadow-soft);
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .week-header:hover {
-      transform: translateX(5px);
-      box-shadow: var(--shadow-medium);
-    }
-
-    .week-icon {
-      width: 70px;
-      height: 70px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      flex-shrink: 0;
-    }
-
-    .week-header.week1 .week-icon { background: var(--pastel-pink); }
-    .week-header.week2 .week-icon { background: var(--pastel-blue); }
-    .week-header.week3 .week-icon { background: var(--pastel-green); }
-    .week-header.week4 .week-icon { background: var(--pastel-purple); }
-
-    .week-info h2 {
-      font-family: var(--font-display);
-      font-size: 36px;
-      color: var(--color-text);
-      margin-bottom: 5px;
-    }
-
-    .week-info p {
-      font-size: 16px;
-      color: #888;
-    }
-
-    .week-toggle {
-      margin-left: auto;
       font-size: 24px;
-      color: #ccc;
-      transition: var(--transition);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
 
-    .week-header.collapsed .week-toggle {
-      transform: rotate(-90deg);
+    .icon-turquesa { background: linear-gradient(135deg, #4DD0E1, #00ACC1); color: white; }
+    .icon-rosa { background: linear-gradient(135deg, #F06292, #EC407A); color: white; }
+    .icon-verde { background: linear-gradient(135deg, #81C784, #4CAF50); color: white; }
+    .icon-morado { background: linear-gradient(135deg, #BA68C8, #9C27B0); color: white; }
+    .icon-amarillo { background: linear-gradient(135deg, #FFD54F, #FFC107); color: #5D4037; }
+    .icon-naranja { background: linear-gradient(135deg, #FFB74D, #FF9800); color: white; }
+
+    .nav-fija .nav-link i {
+      font-size: 18px;
     }
 
-    /* ===== GRID DE DIAS ===== */
-    .days-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 10px 0;
-    }
-
-    .days-grid.hidden {
-      display: none;
-    }
-
-    /* ===== TARJETA DE DIA ===== */
-    .day-card {
-      background: white;
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      transition: var(--transition);
-      border: 2px solid transparent;
-    }
-
-    .day-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .day-card.week1 { border-color: var(--pastel-pink); }
-    .day-card.week2 { border-color: var(--pastel-blue); }
-    .day-card.week3 { border-color: var(--pastel-green); }
-    .day-card.week4 { border-color: var(--pastel-purple); }
-
-    .day-card-header {
-      padding: 20px;
-      display: flex;
+    .dia-card .card-icon {
+      display: inline-flex;
       align-items: center;
-      gap: 15px;
-      cursor: pointer;
-    }
-
-    .day-card.week1 .day-card-header { background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-coral)); }
-    .day-card.week2 .day-card-header { background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-mint)); }
-    .day-card.week3 .day-card-header { background: linear-gradient(135deg, var(--pastel-green), var(--pastel-yellow)); }
-    .day-card.week4 .day-card-header { background: linear-gradient(135deg, var(--pastel-purple), var(--pastel-lavender)); }
-
-    .day-number-badge {
+      justify-content: center;
       width: 55px;
       height: 55px;
-      background: white;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--color-text);
-      box-shadow: var(--shadow-soft);
-      flex-shrink: 0;
-    }
-
-    .day-title-area {
-      flex: 1;
-    }
-
-    .day-title-area h3 {
-      font-family: var(--font-body);
-      font-size: 18px;
-      color: white;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-      margin-bottom: 5px;
-    }
-
-    .day-title-area .day-icon {
-      font-size: 20px;
-    }
-
-    .day-toggle-btn {
-      width: 40px;
-      height: 40px;
-      background: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      color: var(--color-text);
-      transition: var(--transition);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .day-card.collapsed .day-toggle-btn {
-      transform: rotate(-90deg);
-    }
-
-    /* ===== CONTENIDO DEL DIA ===== */
-    .day-content {
-      padding: 25px;
-      display: none;
-    }
-
-    .day-card.expanded .day-content {
-      display: block;
-      animation: slideDown 0.3s ease;
-    }
-
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ===== SECCIONES DEL DEVOCIONAL ===== */
-    .devo-section {
-      margin-bottom: 20px;
-      padding: 20px;
-      border-radius: 15px;
-      position: relative;
-    }
-
-    .devo-section h4 {
-      font-family: var(--font-display);
       font-size: 26px;
       margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
-    .section-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
+    .semana-badge {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-    }
-
-    /* Versiculo */
-    .devo-versiculo {
-      background: linear-gradient(135deg, var(--pastel-lavender), #F0E6FF);
-      border-left: 5px solid var(--pastel-purple);
-    }
-    .devo-versiculo h4 { color: #6B4A6B; }
-    .devo-versiculo .section-icon { background: var(--pastel-purple); color: white; }
-    .devo-versiculo blockquote {
-      font-size: 20px;
-      font-style: italic;
-      color: #5D4A6B;
-      padding: 15px;
-      background: white;
-      border-radius: 10px;
-      margin: 10px 0;
-    }
-    .devo-versiculo footer {
-      font-size: 14px;
-      color: #888;
-      text-align: right;
-      margin-top: 10px;
-    }
-
-    /* Lectura */
-    .devo-lectura {
-      background: linear-gradient(135deg, var(--pastel-green), #D4EDDA);
-      border-left: 5px solid #6DBF8B;
-    }
-    .devo-lectura h4 { color: #3D6B4F; }
-    .devo-lectura .section-icon { background: #6DBF8B; color: white; }
-
-    /* Pensar */
-    .devo-pensar {
-      background: linear-gradient(135deg, var(--pastel-blue), #D6EAF8);
-      border-left: 5px solid #7EC8E3;
-    }
-    .devo-pensar h4 { color: #3D5A6B; }
-    .devo-pensar .section-icon { background: #7EC8E3; color: white; }
-    .devo-pensar ul {
-      list-style: none;
-      padding: 0;
-    }
-    .devo-pensar li {
-      padding: 12px 15px;
-      background: white;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .devo-pensar li::before {
-      content: "?";
-      width: 28px;
-      height: 28px;
-      background: var(--pastel-blue);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      color: #3D5A6B;
-      flex-shrink: 0;
-    }
-
-    /* Actividad */
-    .devo-actividad {
-      background: linear-gradient(135deg, var(--pastel-yellow), #FFF3CD);
-      border-left: 5px solid #F4C430;
-    }
-    .devo-actividad h4 { color: #6B5A3D; }
-    .devo-actividad .section-icon { background: #F4C430; color: white; }
-
-    /* Oracion */
-    .devo-oracion {
-      background: linear-gradient(135deg, var(--pastel-pink), #FFE4E9);
-      border-left: 5px solid #FF9A9E;
-    }
-    .devo-oracion h4 { color: #6B3D4A; }
-    .devo-oracion .section-icon { background: #FF9A9E; color: white; }
-    .devo-oracion p {
-      font-style: italic;
-      padding: 15px;
-      background: white;
-      border-radius: 10px;
-    }
-
-    /* Espacio personal */
-    .devo-espacio {
-      background: linear-gradient(135deg, var(--pastel-orange), #FFE5D4);
-      border-left: 5px solid #FFAB76;
-    }
-    .devo-espacio h4 { color: #6B4A3D; }
-    .devo-espacio .section-icon { background: #FFAB76; color: white; }
-    .devo-espacio textarea {
-      width: 100%;
-      padding: 15px;
-      border: 2px solid #FFAB76;
-      border-radius: 12px;
-      font-family: var(--font-body);
-      font-size: 16px;
-      resize: vertical;
-      min-height: 100px;
-      background: white;
-      transition: var(--transition);
-    }
-    .devo-espacio textarea:focus {
-      outline: none;
-      border-color: var(--pastel-purple);
-      box-shadow: 0 0 0 3px rgba(221,160,221,0.3);
-    }
-
-    /* ===== TIPS PARA PADRES ===== */
-    .tips-section {
-      background: white;
-      border-radius: var(--border-radius);
-      padding: 40px;
-      margin: 40px 0;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .tips-section h2 {
-      font-family: var(--font-display);
-      font-size: 42px;
-      color: var(--color-secondary);
-      text-align: center;
-      margin-bottom: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .tip-card {
-      display: flex;
-      gap: 20px;
-      padding: 20px;
-      margin-bottom: 15px;
-      border-radius: 15px;
-      transition: var(--transition);
-    }
-
-    .tip-card:hover {
-      transform: translateX(5px);
-    }
-
-    .tip-card:nth-child(2) { background: var(--pastel-pink); }
-    .tip-card:nth-child(3) { background: var(--pastel-blue); }
-    .tip-card:nth-child(4) { background: var(--pastel-green); }
-    .tip-card:nth-child(5) { background: var(--pastel-yellow); }
-    .tip-card:nth-child(6) { background: var(--pastel-purple); }
-
-    .tip-icon {
       width: 60px;
       height: 60px;
-      background: white;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-size: 28px;
-      flex-shrink: 0;
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
-    .tip-content h4 {
-      font-family: var(--font-display);
-      font-size: 26px;
-      color: var(--color-text);
-      margin-bottom: 8px;
-    }
-
-    /* ===== RECURSOS ===== */
-    .recursos-section {
-      background: white;
-      border-radius: var(--border-radius);
-      padding: 40px;
-      margin: 40px 0;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .recursos-section h2 {
-      font-family: var(--font-display);
-      font-size: 42px;
-      color: var(--color-secondary);
-      text-align: center;
-      margin-bottom: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .recursos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .recurso-card {
-      padding: 25px;
-      border-radius: 15px;
-      text-align: center;
-      transition: var(--transition);
-      cursor: pointer;
-    }
-
-    .recurso-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-medium);
-    }
-
-    .recurso-card.pink { background: var(--pastel-pink); }
-    .recurso-card.blue { background: var(--pastel-blue); }
-    .recurso-card.yellow { background: var(--pastel-yellow); }
-    .recurso-card.green { background: var(--pastel-green); }
-
-    .recurso-card i {
-      font-size: 48px;
+    .header-icon {
+      font-size: 60px;
       margin-bottom: 15px;
-      display: block;
-    }
-
-    .recurso-card h4 {
-      font-family: var(--font-display);
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    /* ===== FOOTER ===== */
-    .site-footer {
-      background: white;
-      text-align: center;
-      padding: 50px 20px;
-      margin-top: 50px;
-      border-radius: 50px 50px 0 0;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .site-footer h3 {
-      font-family: var(--font-display);
-      font-size: 36px;
-      color: var(--color-secondary);
-      margin-bottom: 10px;
-    }
-
-    .footer-icons {
-      margin: 20px 0;
-      font-size: 30px;
-    }
-
-    .footer-icons i {
-      margin: 0 10px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .footer-icons i:nth-child(1) { color: var(--pastel-pink); animation-delay: 0s; }
-    .footer-icons i:nth-child(2) { color: var(--pastel-yellow); animation-delay: 0.5s; }
-    .footer-icons i:nth-child(3) { color: var(--pastel-blue); animation-delay: 1s; }
-    .footer-icons i:nth-child(4) { color: var(--pastel-green); animation-delay: 1.5s; }
-    .footer-icons i:nth-child(5) { color: var(--pastel-purple); animation-delay: 2s; }
-
-    /* ===== BOTON VOLVER ARRIBA ===== */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 55px;
-      height: 55px;
-      background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-purple));
-      color: white;
-      border: none;
-      border-radius: 50%;
-      font-size: 24px;
-      cursor: pointer;
-      box-shadow: var(--shadow-medium);
-      transition: var(--transition);
-      opacity: 0;
-      visibility: hidden;
-      z-index: 1000;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .back-to-top:hover {
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: var(--shadow-hover);
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .site-header { padding: 40px 15px 30px; border-radius: 0 0 30px 30px; }
-      .main-nav { gap: 8px; }
-      .nav-btn { padding: 10px 16px; font-size: 14px; }
-      .welcome-section { padding: 25px; margin: 25px 15px; }
-      .days-grid { grid-template-columns: 1fr; }
-      .week-header { padding: 20px; flex-wrap: wrap; }
-      .week-icon { width: 55px; height: 55px; font-size: 26px; }
-      .tip-card { flex-direction: column; text-align: center; }
-      .tip-icon { margin: 0 auto; }
-    }
-
-    /* ===== IMPRESION ===== */
-    @media print {
-      .back-to-top, .main-nav { display: none; }
-      .day-card .day-content { display: block !important; }
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
     }
   </style>
 </head>
 <body>
 
+  <!-- NAVEGACION FIJA -->
+  <nav class="nav-fija">
+    <div class="nav-container">
+      <a href="#bienvenida" class="nav-link"><i class="fa-solid fa-house-chimney"></i> Inicio</a>
+      <a href="#devocionales" class="nav-link"><i class="fa-solid fa-book-bible"></i> Devocionales</a>
+      <a href="recursos.html" class="nav-link"><i class="fa-solid fa-palette"></i> Recursos</a>
+      <a href="#footer" class="nav-link"><i class="fa-solid fa-circle-info"></i> Info</a>
+    </div>
+  </nav>
+
   <!-- HEADER -->
   <header class="site-header">
-    <span class="header-decoration star1"><i class="fa-solid fa-star"></i></span>
-    <span class="header-decoration star2"><i class="fa-solid fa-sparkles"></i></span>
-    <span class="header-decoration star3"><i class="fa-solid fa-sun"></i></span>
-    <span class="header-decoration heart1"><i class="fa-solid fa-heart"></i></span>
-    <span class="header-decoration heart2"><i class="fa-solid fa-cloud"></i></span>
-
     <div class="container">
-      <h1><i class="fa-solid fa-cross"></i> Un dia con Dios</h1>
+      <div class="header-icon">
+        <i class="fa-solid fa-cross"></i>
+      </div>
+      <h1>Un dia con Dios</h1>
       <p class="lead">Devocional biblico para ninos de 8 a 12 anos</p>
-      <p class="subtitle"><i class="fa-solid fa-book-bible"></i> 28 dias de reflexiones, versiculos y actividades</p>
-
-      <nav class="main-nav">
-        <a href="#bienvenida" class="nav-btn pink"><i class="fa-solid fa-house-heart"></i> Inicio</a>
-        <a href="#semana1" class="nav-btn pink"><i class="fa-solid fa-1"></i> Semana 1</a>
-        <a href="#semana2" class="nav-btn blue"><i class="fa-solid fa-2"></i> Semana 2</a>
-        <a href="#semana3" class="nav-btn green"><i class="fa-solid fa-3"></i> Semana 3</a>
-        <a href="#semana4" class="nav-btn purple"><i class="fa-solid fa-4"></i> Semana 4</a>
-        <a href="#tips" class="nav-btn orange"><i class="fa-solid fa-people-roof"></i> Padres</a>
-        <a href="#recursos" class="nav-btn yellow"><i class="fa-solid fa-gift"></i> Recursos</a>
-      </nav>
+      <p><i class="fa-solid fa-calendar-days"></i> 28 dias de reflexiones, versiculos y actividades</p>
     </div>
   </header>
 
   <main class="container">
 
     <!-- BIENVENIDA -->
-    <section id="bienvenida" class="welcome-section">
-      <h2>
-        <span class="welcome-icon" style="background: var(--pastel-green);"><i class="fa-solid fa-hands-holding-heart"></i></span>
-        Bienvenidos Familias!
-      </h2>
-      <p><strong style="color: var(--color-secondary);">Que alegria tenerlos aqui!</strong></p>
-      <p>Este devocional esta disenado para que <strong style="color: var(--color-primary);">padres e hijos</strong> exploren juntos el amor de Dios.</p>
-      <p><i class="fa-solid fa-hand-pointer" style="color: var(--pastel-purple);"></i> <strong>Haz clic en cualquier dia</strong> para ver el devocional completo.</p>
+    <section id="bienvenida" class="bienvenida">
+      <div class="icon-circle icon-rosa" style="width: 70px; height: 70px; font-size: 32px; margin-bottom: 20px;">
+        <i class="fa-solid fa-hands-holding-heart"></i>
+      </div>
+      <h2><i class="fa-solid fa-sparkles"></i> Bienvenidos Familias! <i class="fa-solid fa-sparkles"></i></h2>
+      <p><strong style="color: #EC407A;">Que alegria tenerlos aqui!</strong></p>
+      <p>Este devocional esta disenado para que <strong style="color: #00ACC1;">padres e hijos</strong> exploren juntos el amor de Dios.</p>
+      <p><i class="fa-solid fa-hand-pointer" style="color: #BA68C8;"></i> <strong>Haz clic en cualquier dia</strong> para ver el devocional completo.</p>
     </section>
 
-    <!-- SEMANA 1 -->
-    <section id="semana1" class="week-container">
-      <div class="week-header week1" onclick="toggleWeek('week1-content', this)">
-        <div class="week-icon"><i class="fa-solid fa-heart"></i></div>
-        <div class="week-info">
+    <!-- DEVOCIONALES -->
+    <section id="devocionales">
+
+      <!-- SEMANA 1 -->
+      <div class="semana-header semana1" id="semana1">
+        <div class="semana-badge icon-rosa">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <div>
           <h2>Semana 1</h2>
-          <p><i class="fa-solid fa-calendar-days"></i> Dias 1 al 7 - Fundamentos del amor</p>
+          <p><i class="fa-solid fa-calendar-week"></i> Dias 1-7: Fundamentos del Amor</p>
         </div>
-        <i class="fa-solid fa-chevron-down week-toggle"></i>
       </div>
 
-      <div id="week1-content" class="days-grid">
-        <!-- Dia 1 -->
-        <article class="day-card week1 collapsed" id="dia1">
-          <div class="day-card-header" onclick="toggleDay(this.parentElement)">
-            <div class="day-number-badge">1</div>
-            <div class="day-title-area">
-              <span class="day-icon"><i class="fa-solid fa-heart"></i></span>
-              <h3>El amor de Dios</h3>
-            </div>
-            <div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div>
-          </div>
-          <div class="day-content">
-            <div class="devo-section devo-versiculo">
-              <h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4>
-              <blockquote>"Dios es amor."</blockquote>
-              <footer>- 1 Juan 4:8</footer>
-            </div>
-            <div class="devo-section devo-lectura">
-              <h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4>
-              <p>El amor de Dios es especial porque no depende de lo que hagamos. El nos ama cuando hacemos cosas buenas y tambien cuando nos equivocamos. Su amor no cambia, siempre esta presente.</p>
-              <p>Este amor nos da seguridad y nos ayuda a amar a otras personas.</p>
-            </div>
-            <div class="devo-section devo-pensar">
-              <h4><span class="section-icon"><i class="fa-solid fa-lightbulb"></i></span> Para pensar</h4>
-              <ul>
-                <li>Como te hace sentir saber que Dios te ama siempre?</li>
-                <li>A quien puedes mostrar amor hoy?</li>
-              </ul>
-            </div>
-            <div class="devo-section devo-actividad">
-              <h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4>
-              <p>Haz una lista de 3 cosas por las que estas agradecido y compartelas con tu familia. Di a tres personas que las amas.</p>
-            </div>
-            <div class="devo-section devo-oracion">
-              <h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4>
-              <p>Dios, gracias por amarme siempre. Ayudame a compartir tu amor con los demas. Amen.</p>
-            </div>
-            <div class="devo-section devo-espacio">
-              <h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4>
-              <textarea placeholder="Escribe o dibuja lo que quieras recordar..."></textarea>
-            </div>
-          </div>
-        </article>
-
-        <!-- Dia 2 -->
-        <article class="day-card week1 collapsed" id="dia2">
-          <div class="day-card-header" onclick="toggleDay(this.parentElement)">
-            <div class="day-number-badge">2</div>
-            <div class="day-title-area">
-              <span class="day-icon"><i class="fa-solid fa-gift"></i></span>
-              <h3>La gratitud</h3>
-            </div>
-            <div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div>
-          </div>
-          <div class="day-content">
-            <div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Dad gracias en todo."</blockquote><footer>- 1 Tesalonicenses 5:18</footer></div>
-            <div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>La gratitud nos ayuda a ver las bendiciones que recibimos cada dia. Cuando agradecemos, nuestro corazon se llena de alegria.</p></div>
-            <div class="devo-section devo-pensar"><h4><span class="section-icon"><i class="fa-solid fa-lightbulb"></i></span> Para pensar</h4><ul><li>Que cosas pequenas disfrutaste hoy?</li><li>Como cambia tu dia cuando das gracias?</li></ul></div>
-            <div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Escribe una nota de agradecimiento para alguien que te haya ayudado.</p></div>
-            <div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Dios, gracias por todas las bendiciones. Ayudame a tener un corazon agradecido. Amen.</p></div>
-            <div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe tu nota de agradecimiento..."></textarea></div>
-          </div>
-        </article>
-
-        <!-- Dia 3 -->
-        <article class="day-card week1 collapsed" id="dia3">
-          <div class="day-card-header" onclick="toggleDay(this.parentElement)">
-            <div class="day-number-badge">3</div>
-            <div class="day-title-area">
-              <span class="day-icon"><i class="fa-solid fa-shield-heart"></i></span>
-              <h3>Confianza en Dios</h3>
-            </div>
-            <div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div>
-          </div>
-          <div class="day-content">
-            <div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Confia en el Senor con todo tu corazon."</blockquote><footer>- Proverbios 3:5</footer></div>
-            <div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Confiar en Dios significa creer que El nos cuida y nos guia, incluso cuando no entendemos todo.</p></div>
-            <div class="devo-section devo-pensar"><h4><span class="section-icon"><i class="fa-solid fa-lightbulb"></i></span> Para pensar</h4><ul><li>Que situacion te preocupa ahora?</li><li>Como te ha ayudado Dios antes?</li></ul></div>
-            <div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Piensa en una preocupacion y ora pidiendole a Dios que te ayude.</p></div>
-            <div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Dios, ayudame a confiar en ti. Se que me cuidas. Amen.</p></div>
-            <div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe tu preocupacion..."></textarea></div>
-          </div>
-        </article>
-
-        <!-- Dia 4 -->
-        <article class="day-card week1 collapsed" id="dia4">
-          <div class="day-card-header" onclick="toggleDay(this.parentElement)">
-            <div class="day-number-badge">4</div>
-            <div class="day-title-area">
-              <span class="day-icon"><i class="fa-solid fa-hand-holding-heart"></i></span>
-              <h3>La bondad</h3>
-            </div>
-            <div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div>
-          </div>
-          <div class="day-content">
-            <div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Sed bondadosos unos con otros."</blockquote><footer>- Efesios 4:32</footer></div>
-            <div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Ser bondadosos significa tratar a los demas con carino y respeto.</p></div>
-            <div class="devo-section devo-pensar"><h4><span class="section-icon"><i class="fa-solid fa-lightbulb"></i></span> Para pensar</h4><ul><li>Cuando fue alguien bondadoso contigo?</li><li>Con quien puedes ser bondadoso hoy?</li></ul></div>
-            <div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Haz una buena accion hoy sin que nadie te lo pida.</p></div>
-            <div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Dios, ayudame a ser bondadoso con todos. Amen.</p></div>
-            <div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe tu buena accion..."></textarea></div>
-          </div>
-        </article>
-
-        <!-- Dia 5 -->
-        <article class="day-card week1 collapsed" id="dia5">
-          <div class="day-card-header" onclick="toggleDay(this.parentElement)">
-            <div class="day-number-badge">5</div>
-            <div class="day-title-area">
-              <span class="day-icon"><i class="fa-solid fa-dove"></i></span>
-              <h3>El perdon</h3>
-            </div>
-            <div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div>
-          </div>
-          <div class="day-content">
-            <div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Perdona y seras perdonado."</blockquote><footer>- Lucas 6:37</footer></div>
-            <div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Perdonar libera nuestro corazon del rencor y nos da paz.</p></div>
-            <div class="devo-section devo-pensar"><h4><span class="section-icon"><i class="fa-solid fa-lightbulb"></i></span> Para pensar</h4><ul><li>Hay alguien a quien necesitas perdonar?</li><li>Como te sentirias si dejaras ir el enojo?</li></ul></div>
-            <div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Escribe una carta de perdon.</p></div>
-            <div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Dios, ayudame a perdonar. Llena mi corazon de paz. Amen.</p></div>
-            <div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe tu carta de perdon..."></textarea></div>
-          </div>
-        </article>
-
-        <!-- Dia 6 -->
-        <article class="day-card week1 collapsed" id="dia6">
-          <div class="day-card-header" onclick="toggleDay(this.parentElement)">
-            <div class="day-number-badge">6</div>
-            <div class="day-title-area">
-              <span class="day-icon"><i class="fa-solid fa-house-user"></i></span>
-              <h3>La obediencia</h3>
-            </div>
-            <div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div>
-          </div>
-          <div class="day-content">
-            <div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Hijos, obedezcan a sus padres."</blockquote><footer>- Efesios 6:1</footer></div>
-            <div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Obedecer muestra respeto y confianza en quienes nos aman.</p></div>
-            <div class="devo-section devo-pensar"><h4><span class="section-icon"><i class="fa-solid fa-lightbulb"></i></span> Para pensar</h4><ul><li>Por que a veces es dificil obedecer?</li><li>Como te sientes cuando obedeces?</li></ul></div>
-            <div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Ayuda en una tarea del hogar sin que te lo pidan.</p></div>
-            <div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Dios, ayudame a obedecer con amor. Amen.</p></div>
-            <div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe como ayudaste..."></textarea></div>
-          </div>
-        </article>
-
-        <!-- Dia 7 -->
-        <article class="day-card week1 collapsed" id="dia7">
-          <div class="day-card-header" onclick="toggleDay(this.parentElement)">
-            <div class="day-number-badge">7</div>
-            <div class="day-title-area">
-              <span class="day-icon"><i class="fa-solid fa-cross"></i></span>
-              <h3>La fe</h3>
-            </div>
-            <div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div>
-          </div>
-          <div class="day-content">
-            <div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"La fe es la certeza de lo que se espera."</blockquote><footer>- Hebreos 11:1</footer></div>
-            <div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>La fe es creer en Dios aunque no lo podamos ver.</p></div>
-            <div class="devo-section devo-pensar"><h4><span class="section-icon"><i class="fa-solid fa-lightbulb"></i></span> Para pensar</h4><ul><li>Que historia de fe te inspira?</li><li>En que necesitas mas fe ahora?</li></ul></div>
-            <div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Cuenta una historia biblica a un familiar.</p></div>
-            <div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Dios, aumenta mi fe. Amen.</p></div>
-            <div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe una historia de fe..."></textarea></div>
-          </div>
-        </article>
+      <div class="dias-grid">
+        <a href="dias/dia1.html" class="dia-card">
+          <div class="card-icon icon-rosa"><i class="fa-solid fa-heart"></i></div>
+          <h3>Dia 1</h3>
+          <p>El amor de Dios</p>
+        </a>
+        <a href="dias/dia2.html" class="dia-card">
+          <div class="card-icon icon-amarillo"><i class="fa-solid fa-gift"></i></div>
+          <h3>Dia 2</h3>
+          <p>La gratitud</p>
+        </a>
+        <a href="dias/dia3.html" class="dia-card">
+          <div class="card-icon icon-turquesa"><i class="fa-solid fa-shield-heart"></i></div>
+          <h3>Dia 3</h3>
+          <p>Confianza en Dios</p>
+        </a>
+        <a href="dias/dia4.html" class="dia-card">
+          <div class="card-icon icon-verde"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          <h3>Dia 4</h3>
+          <p>La bondad</p>
+        </a>
+        <a href="dias/dia5.html" class="dia-card">
+          <div class="card-icon icon-morado"><i class="fa-solid fa-dove"></i></div>
+          <h3>Dia 5</h3>
+          <p>El perdon</p>
+        </a>
+        <a href="dias/dia6.html" class="dia-card">
+          <div class="card-icon icon-naranja"><i class="fa-solid fa-house-user"></i></div>
+          <h3>Dia 6</h3>
+          <p>La obediencia</p>
+        </a>
+        <a href="dias/dia7.html" class="dia-card">
+          <div class="card-icon icon-rosa"><i class="fa-solid fa-cross"></i></div>
+          <h3>Dia 7</h3>
+          <p>La fe</p>
+        </a>
       </div>
-    </section>
 
-    <!-- SEMANA 2 -->
-    <section id="semana2" class="week-container">
-      <div class="week-header week2" onclick="toggleWeek('week2-content', this)">
-        <div class="week-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
-        <div class="week-info">
+      <!-- SEMANA 2 -->
+      <div class="semana-header semana2" id="semana2">
+        <div class="semana-badge icon-turquesa">
+          <i class="fa-solid fa-hands-holding-child"></i>
+        </div>
+        <div>
           <h2>Semana 2</h2>
-          <p><i class="fa-solid fa-calendar-days"></i> Dias 8 al 14 - Dios cuida de mi</p>
+          <p><i class="fa-solid fa-calendar-week"></i> Dias 8-14: Dios Cuida de Mi</p>
         </div>
-        <i class="fa-solid fa-chevron-down week-toggle"></i>
       </div>
 
-      <div id="week2-content" class="days-grid">
-        <article class="day-card week2 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">8</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-shield"></i></span><h3>Dios me cuida</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"El Senor es mi pastor."</blockquote><footer>- Salmo 23:1</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Dios cuida de nosotros como un pastor cuida a sus ovejas.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Lista 3 cosas que te hacen sentir seguro.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Gracias por cuidarme, Dios. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe aqui..."></textarea></div></div></article>
-
-        <article class="day-card week2 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">9</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-ear-listen"></i></span><h3>Dios escucha</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Clama a mi y yo te respondere."</blockquote><footer>- Jeremias 33:3</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Dios escucha cuando hablamos con el.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Escribe una oracion corta.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Gracias por escucharme. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Tu oracion..."></textarea></div></div></article>
-
-        <article class="day-card week2 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">10</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-medal"></i></span><h3>Dios me da valor</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Se fuerte y valiente."</blockquote><footer>- Josue 1:9</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Dios nos da fuerzas en momentos dificiles.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Lista 3 acciones valientes.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Dame valor, Dios. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Tus metas valientes..."></textarea></div></div></article>
-
-        <article class="day-card week2 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">11</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-heart-circle-check"></i></span><h3>Dios me perdona</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Dios es fiel y nos perdona."</blockquote><footer>- 1 Juan 1:9</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Dios nos ofrece perdon y nos ayuda a cambiar.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Escribe una carta pidiendo perdon.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Gracias por perdonarme. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe aqui..."></textarea></div></div></article>
-
-        <article class="day-card week2 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">12</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-compass"></i></span><h3>Dios me guia</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Tu palabra es lampara a mis pies."</blockquote><footer>- Salmo 119:105</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Dios nos guia con su palabra.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Haz una lista de pasos para decidir.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Muestrame el camino. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe aqui..."></textarea></div></div></article>
-
-        <article class="day-card week2 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">13</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-people-arrows"></i></span><h3>Amar a otros</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Amense unos a otros."</blockquote><footer>- Juan 13:34</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>El amor se muestra con acciones.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Haz una accion de amor esta semana.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Ayudame a amar. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Tu accion de amor..."></textarea></div></div></article>
-
-        <article class="day-card week2 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">14</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-peace"></i></span><h3>Dios me da paz</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Les doy mi paz."</blockquote><footer>- Juan 14:27</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Dios ofrece paz que calma las preocupaciones.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Practica 2 minutos de respiracion tranquila.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Dame paz, Dios. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe aqui..."></textarea></div></div></article>
+      <div class="dias-grid">
+        <a href="dias/dia8.html" class="dia-card">
+          <div class="card-icon icon-turquesa"><i class="fa-solid fa-shield"></i></div>
+          <h3>Dia 8</h3>
+          <p>Dios me cuida</p>
+        </a>
+        <a href="dias/dia9.html" class="dia-card">
+          <div class="card-icon icon-morado"><i class="fa-solid fa-ear-listen"></i></div>
+          <h3>Dia 9</h3>
+          <p>Dios escucha</p>
+        </a>
+        <a href="dias/dia10.html" class="dia-card">
+          <div class="card-icon icon-amarillo"><i class="fa-solid fa-medal"></i></div>
+          <h3>Dia 10</h3>
+          <p>Dios me da valor</p>
+        </a>
+        <a href="dias/dia11.html" class="dia-card">
+          <div class="card-icon icon-rosa"><i class="fa-solid fa-heart-circle-check"></i></div>
+          <h3>Dia 11</h3>
+          <p>Dios me perdona</p>
+        </a>
+        <a href="dias/dia12.html" class="dia-card">
+          <div class="card-icon icon-verde"><i class="fa-solid fa-compass"></i></div>
+          <h3>Dia 12</h3>
+          <p>Dios me guia</p>
+        </a>
+        <a href="dias/dia13.html" class="dia-card">
+          <div class="card-icon icon-naranja"><i class="fa-solid fa-people-arrows"></i></div>
+          <h3>Dia 13</h3>
+          <p>Amar a otros</p>
+        </a>
+        <a href="dias/dia14.html" class="dia-card">
+          <div class="card-icon icon-turquesa"><i class="fa-solid fa-peace"></i></div>
+          <h3>Dia 14</h3>
+          <p>Dios me da paz</p>
+        </a>
       </div>
-    </section>
 
-    <!-- SEMANA 3 -->
-    <section id="semana3" class="week-container">
-      <div class="week-header week3" onclick="toggleWeek('week3-content', this)">
-        <div class="week-icon"><i class="fa-solid fa-sun"></i></div>
-        <div class="week-info">
+      <!-- SEMANA 3 -->
+      <div class="semana-header semana3" id="semana3">
+        <div class="semana-badge icon-verde">
+          <i class="fa-solid fa-sun"></i>
+        </div>
+        <div>
           <h2>Semana 3</h2>
-          <p><i class="fa-solid fa-calendar-days"></i> Dias 15 al 21 - Creciendo con Dios</p>
+          <p><i class="fa-solid fa-calendar-week"></i> Dias 15-21: Creciendo con Dios</p>
         </div>
-        <i class="fa-solid fa-chevron-down week-toggle"></i>
       </div>
 
-      <div id="week3-content" class="days-grid">
-        <article class="day-card week3 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">15</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-face-smile-beam"></i></span><h3>Dios me da alegria</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"El gozo del Senor es nuestra fuerza."</blockquote><footer>- Nehemias 8:10</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>La alegria de Dios es profunda y permanece.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Lista 5 cosas que te hacen feliz.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Gracias por la alegria. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Tu lista de alegria..."></textarea></div></div></article>
-
-        <article class="day-card week3 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">16</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-dumbbell"></i></span><h3>Dios me hace fuerte</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Todo lo puedo en Cristo."</blockquote><footer>- Filipenses 4:13</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Dios nos da fuerzas para continuar.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Escribe sobre un desafio.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Dame fuerzas. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Tu desafio..."></textarea></div></div></article>
-
-        <article class="day-card week3 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">17</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-user-group"></i></span><h3>Dios esta conmigo</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"No te dejare."</blockquote><footer>- Hebreos 13:5</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Dios esta con nosotros siempre.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Crea una tarjeta "Dios esta conmigo".</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Gracias por estar conmigo. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe aqui..."></textarea></div></div></article>
-
-        <article class="day-card week3 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">18</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-hands-clapping"></i></span><h3>Ser agradecido</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Dad gracias en todo."</blockquote><footer>- 1 Tesalonicenses 5:18</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>La gratitud nos hace mas felices.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Comienza un diario de gratitud.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Gracias por tus bendiciones. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="3 cosas agradecidas..."></textarea></div></div></article>
-
-        <article class="day-card week3 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">19</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-hand-holding-dollar"></i></span><h3>Ser generoso</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Hay mas dicha en dar."</blockquote><footer>- Hechos 20:35</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Compartir nos da felicidad.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Comparte algo con alguien.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Ayudame a ser generoso. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Que compartiste..."></textarea></div></div></article>
-
-        <article class="day-card week3 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">20</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-rainbow"></i></span><h3>Dios me da esperanza</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"La esperanza no averguenza."</blockquote><footer>- Romanos 5:5</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>La esperanza nos ayuda a no rendirnos.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Dibuja algo que esperas.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Dame esperanza. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Tu esperanza..."></textarea></div></div></article>
-
-        <article class="day-card week3 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">21</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-bed"></i></span><h3>Dios me invita a descansar</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Vengan a mi y les dare descanso."</blockquote><footer>- Mateo 11:28</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>El descanso es cuidar nuestro cuerpo y mente.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Planifica tiempo de descanso.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Gracias por el descanso. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Tu plan de descanso..."></textarea></div></div></article>
+      <div class="dias-grid">
+        <a href="dias/dia15.html" class="dia-card">
+          <div class="card-icon icon-amarillo"><i class="fa-solid fa-face-smile-beam"></i></div>
+          <h3>Dia 15</h3>
+          <p>Dios me da alegria</p>
+        </a>
+        <a href="dias/dia16.html" class="dia-card">
+          <div class="card-icon icon-naranja"><i class="fa-solid fa-dumbbell"></i></div>
+          <h3>Dia 16</h3>
+          <p>Dios me hace fuerte</p>
+        </a>
+        <a href="dias/dia17.html" class="dia-card">
+          <div class="card-icon icon-turquesa"><i class="fa-solid fa-user-group"></i></div>
+          <h3>Dia 17</h3>
+          <p>Dios esta conmigo</p>
+        </a>
+        <a href="dias/dia18.html" class="dia-card">
+          <div class="card-icon icon-rosa"><i class="fa-solid fa-hands-clapping"></i></div>
+          <h3>Dia 18</h3>
+          <p>Ser agradecido</p>
+        </a>
+        <a href="dias/dia19.html" class="dia-card">
+          <div class="card-icon icon-verde"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+          <h3>Dia 19</h3>
+          <p>Ser generoso</p>
+        </a>
+        <a href="dias/dia20.html" class="dia-card">
+          <div class="card-icon icon-morado"><i class="fa-solid fa-rainbow"></i></div>
+          <h3>Dia 20</h3>
+          <p>Dios me da esperanza</p>
+        </a>
+        <a href="dias/dia21.html" class="dia-card">
+          <div class="card-icon icon-turquesa"><i class="fa-solid fa-bed"></i></div>
+          <h3>Dia 21</h3>
+          <p>Dios me invita a descansar</p>
+        </a>
       </div>
-    </section>
 
-    <!-- SEMANA 4 -->
-    <section id="semana4" class="week-container">
-      <div class="week-header week4" onclick="toggleWeek('week4-content', this)">
-        <div class="week-icon"><i class="fa-solid fa-trophy"></i></div>
-        <div class="week-info">
+      <!-- SEMANA 4 -->
+      <div class="semana-header semana4" id="semana4">
+        <div class="semana-badge icon-morado">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <div>
           <h2>Semana 4</h2>
-          <p><i class="fa-solid fa-calendar-days"></i> Dias 22 al 28 - Valores que brillan</p>
+          <p><i class="fa-solid fa-calendar-week"></i> Dias 22-28: Valores que Brillan</p>
         </div>
-        <i class="fa-solid fa-chevron-down week-toggle"></i>
       </div>
 
-      <div id="week4-content" class="days-grid">
-        <article class="day-card week4 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">22</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-hourglass-half"></i></span><h3>Ser paciente</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"El paciente muestra discernimiento."</blockquote><footer>- Proverbios 14:29</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>La paciencia nos ayuda a esperar con calma.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Respira y cuenta hasta 10 cuando te impacientes.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Dame paciencia. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe aqui..."></textarea></div></div></article>
-
-        <article class="day-card week4 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">23</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-scale-balanced"></i></span><h3>Ser honesto</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"El Senor se complace en la lealtad."</blockquote><footer>- Proverbios 12:22</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>La honestidad construye confianza.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Se honesto todo el dia.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Dame valor para la verdad. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe aqui..."></textarea></div></div></article>
-
-        <article class="day-card week4 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">24</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-heart-circle-plus"></i></span><h3>Perdonarme</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Si Dios nos perdona, quien nos condena?"</blockquote><footer>- Romanos 8:1</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Podemos perdonarnos como Dios nos perdona.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Escribe algo que te cuesta perdonarte.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Ayudame a perdonarme. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Escribe aqui..."></textarea></div></div></article>
-
-        <article class="day-card week4 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">25</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-graduation-cap"></i></span><h3>Dios me da sabiduria</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Si necesitas sabiduria, pidesela a Dios."</blockquote><footer>- Santiago 1:5</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>La sabiduria nos ayuda a decidir bien.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Haz lista de pros y contras para una decision.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Dame sabiduria. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Tu decision..."></textarea></div></div></article>
-
-        <article class="day-card week4 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">26</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-mountain"></i></span><h3>Dios me ayuda</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Dios es nuestro amparo y fortaleza."</blockquote><footer>- Salmo 46:1</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Las dificultades nos hacen mas fuertes.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Dibuja una dificultad que superaste.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Ayudame en las dificultades. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Tu dificultad superada..."></textarea></div></div></article>
-
-        <article class="day-card week4 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">27</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-hand-sparkles"></i></span><h3>Ser humilde</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"Dios da gracia a los humildes."</blockquote><footer>- Santiago 4:6</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>La humildad nos ayuda a valorar a los demas.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Sirve a alguien sin esperar nada.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Ayudame a ser humilde. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Como serviste..."></textarea></div></div></article>
-
-        <article class="day-card week4 collapsed"><div class="day-card-header" onclick="toggleDay(this.parentElement)"><div class="day-number-badge">28</div><div class="day-title-area"><span class="day-icon"><i class="fa-solid fa-cake-candles"></i></span><h3>Dios celebra conmigo</h3></div><div class="day-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div></div><div class="day-content"><div class="devo-section devo-versiculo"><h4><span class="section-icon"><i class="fa-solid fa-book-bible"></i></span> Versiculo</h4><blockquote>"El Senor se regocija por ti."</blockquote><footer>- Sofonias 3:17</footer></div><div class="devo-section devo-lectura"><h4><span class="section-icon"><i class="fa-solid fa-book-open"></i></span> Lectura</h4><p>Dios celebra con nosotros cada logro.</p></div><div class="devo-section devo-actividad"><h4><span class="section-icon"><i class="fa-solid fa-pencil"></i></span> Actividad</h4><p>Organiza una pequena celebracion familiar.</p></div><div class="devo-section devo-oracion"><h4><span class="section-icon"><i class="fa-solid fa-hands-praying"></i></span> Oracion</h4><p>Gracias por celebrar conmigo. Amen.</p></div><div class="devo-section devo-espacio"><h4><span class="section-icon"><i class="fa-solid fa-star"></i></span> Mi espacio</h4><textarea placeholder="Que celebras..."></textarea></div></div></article>
+      <div class="dias-grid">
+        <a href="dias/dia22.html" class="dia-card">
+          <div class="card-icon icon-turquesa"><i class="fa-solid fa-hourglass-half"></i></div>
+          <h3>Dia 22</h3>
+          <p>Ser paciente</p>
+        </a>
+        <a href="dias/dia23.html" class="dia-card">
+          <div class="card-icon icon-verde"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h3>Dia 23</h3>
+          <p>Ser honesto</p>
+        </a>
+        <a href="dias/dia24.html" class="dia-card">
+          <div class="card-icon icon-rosa"><i class="fa-solid fa-heart-circle-plus"></i></div>
+          <h3>Dia 24</h3>
+          <p>Perdonarme</p>
+        </a>
+        <a href="dias/dia25.html" class="dia-card">
+          <div class="card-icon icon-amarillo"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h3>Dia 25</h3>
+          <p>Dios me da sabiduria</p>
+        </a>
+        <a href="dias/dia26.html" class="dia-card">
+          <div class="card-icon icon-naranja"><i class="fa-solid fa-mountain"></i></div>
+          <h3>Dia 26</h3>
+          <p>Dios me ayuda</p>
+        </a>
+        <a href="dias/dia27.html" class="dia-card">
+          <div class="card-icon icon-morado"><i class="fa-solid fa-hand-sparkles"></i></div>
+          <h3>Dia 27</h3>
+          <p>Ser humilde</p>
+        </a>
+        <a href="dias/dia28.html" class="dia-card">
+          <div class="card-icon icon-rosa"><i class="fa-solid fa-cake-candles"></i></div>
+          <h3>Dia 28</h3>
+          <p>Dios celebra conmigo</p>
+        </a>
       </div>
-    </section>
 
-    <!-- TIPS PARA PADRES -->
-    <section id="tips" class="tips-section">
-      <h2><span style="background: var(--pastel-orange); padding: 15px; border-radius: 50%; display: inline-flex;"><i class="fa-solid fa-people-roof"></i></span> Tips para Padres</h2>
-      <div class="tip-card"><div class="tip-icon"><i class="fa-solid fa-calendar-check"></i></div><div class="tip-content"><h4>1. Sean constantes pero flexibles</h4><p>Intenten hacer el devocional a la misma hora, pero si un dia no pueden, no pasa nada!</p></div></div>
-      <div class="tip-card"><div class="tip-icon"><i class="fa-solid fa-book-open-reader"></i></div><div class="tip-content"><h4>2. Lean juntos en voz alta</h4><p>Turnense para leer el versiculo y la reflexion.</p></div></div>
-      <div class="tip-card"><div class="tip-icon"><i class="fa-solid fa-comments"></i></div><div class="tip-content"><h4>3. Valora sus preguntas</h4><p>Si hacen preguntas dificiles, esta bien decir "vamos a investigarlo juntos".</p></div></div>
-      <div class="tip-card"><div class="tip-icon"><i class="fa-solid fa-hands-praying"></i></div><div class="tip-content"><h4>4. Personalicen la oracion</h4><p>Animalos a anadir sus propias palabras y peticiones.</p></div></div>
-      <div class="tip-card"><div class="tip-icon"><i class="fa-solid fa-palette"></i></div><div class="tip-content"><h4>5. Diviertanse con la actividad</h4><p>Haganla juntos cuando sea posible; el mejor ejemplo eres tu.</p></div></div>
-    </section>
-
-    <!-- RECURSOS -->
-    <section id="recursos" class="recursos-section">
-      <h2><span style="background: var(--pastel-yellow); padding: 15px; border-radius: 50%; display: inline-flex;"><i class="fa-solid fa-gift"></i></span> Recursos</h2>
-      <div class="recursos-grid">
-        <div class="recurso-card pink"><i class="fa-solid fa-palette"></i><h4>Dibujos para colorear</h4><p>Descarga e imprime</p></div>
-        <div class="recurso-card blue"><i class="fa-solid fa-scissors"></i><h4>Tarjetas de versiculos</h4><p>Recortables para memorizar</p></div>
-        <div class="recurso-card yellow"><i class="fa-solid fa-calendar"></i><h4>Calendario mensual</h4><p>Planifica tu devocional</p></div>
-        <div class="recurso-card green"><i class="fa-solid fa-music"></i><h4>Musica recomendada</h4><p>Canciones para adorar</p></div>
-      </div>
     </section>
 
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
+  <footer id="footer" class="site-footer">
     <h3><i class="fa-solid fa-cross"></i> Un dia con Dios</h3>
     <p>Devocional para ninos y familias</p>
     <div class="footer-icons">
-      <i class="fa-solid fa-heart"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-cloud"></i>
-      <i class="fa-solid fa-sun"></i>
-      <i class="fa-solid fa-rainbow"></i>
+      <span><i class="fa-solid fa-heart" style="color: #F06292;"></i></span>
+      <span><i class="fa-solid fa-star" style="color: #FFD54F;"></i></span>
+      <span><i class="fa-solid fa-cloud" style="color: #4DD0E1;"></i></span>
+      <span><i class="fa-solid fa-sun" style="color: #FF9800;"></i></span>
     </div>
     <p>Cada dia es una oportunidad para crecer en fe</p>
-    <p style="margin-top: 15px; font-size: 14px; color: #999;"><i class="fa-solid fa-envelope"></i> devocionalespequesypadres@gmail.com</p>
+    <p style="margin-top: 15px; font-size: 14px; color: #999;">
+      <i class="fa-solid fa-envelope"></i> devocionalespequesypadres@gmail.com
+    </p>
   </footer>
 
   <!-- BOTON VOLVER ARRIBA -->
-  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
+  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <script>
-    function toggleDay(card) { card.classList.toggle('collapsed'); card.classList.toggle('expanded'); }
-    function toggleWeek(contentId, header) { document.getElementById(contentId).classList.toggle('hidden'); header.classList.toggle('collapsed'); }
-    window.addEventListener('scroll', function() { document.querySelector('.back-to-top').classList.toggle('visible', window.scrollY > 400); });
-    document.querySelectorAll('textarea').forEach((ta, i) => { const key = 'devo-nota-' + i; ta.value = localStorage.getItem(key) || ''; ta.addEventListener('input', () => localStorage.setItem(key, ta.value)); });
+    // Mostrar/ocultar boton de volver arriba
+    window.addEventListener('scroll', function() {
+      document.querySelector('.back-to-top').classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Marcar enlace activo en navegacion
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    });
   </script>
 </body>
 </html>

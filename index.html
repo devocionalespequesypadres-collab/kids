@@ -10,78 +10,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Patrick+Hand&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
-  <style>
-    /* Estilos adicionales para iconos cristianos estilizados */
-    .icon-circle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      font-size: 24px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
-
-    .icon-turquesa { background: linear-gradient(135deg, #4DD0E1, #00ACC1); color: white; }
-    .icon-rosa { background: linear-gradient(135deg, #F06292, #EC407A); color: white; }
-    .icon-verde { background: linear-gradient(135deg, #81C784, #4CAF50); color: white; }
-    .icon-morado { background: linear-gradient(135deg, #BA68C8, #9C27B0); color: white; }
-    .icon-amarillo { background: linear-gradient(135deg, #FFD54F, #FFC107); color: #5D4037; }
-    .icon-naranja { background: linear-gradient(135deg, #FFB74D, #FF9800); color: white; }
-
-    .nav-fija .nav-link i {
-      font-size: 18px;
-    }
-
-    .dia-card .card-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      font-size: 26px;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .semana-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      font-size: 28px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .header-icon {
-      font-size: 60px;
-      margin-bottom: 15px;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-    }
-  </style>
 </head>
 <body>
 
-  <!-- NAVEGACION FIJA -->
-  <nav class="nav-fija">
-    <div class="nav-container">
-      <a href="#bienvenida" class="nav-link"><i class="fa-solid fa-house-chimney"></i> Inicio</a>
-      <a href="#devocionales" class="nav-link"><i class="fa-solid fa-book-bible"></i> Devocionales</a>
-      <a href="recursos.html" class="nav-link"><i class="fa-solid fa-palette"></i> Recursos</a>
-      <a href="#footer" class="nav-link"><i class="fa-solid fa-circle-info"></i> Info</a>
-    </div>
+  <!-- ESTRELLAS Y DESTELLOS ANIMADOS -->
+  <div class="stars-container">
+    <span class="star"><i class="fa-solid fa-star"></i></span>
+    <span class="star"><i class="fa-solid fa-star"></i></span>
+    <span class="star"><i class="fa-solid fa-star"></i></span>
+    <span class="star"><i class="fa-solid fa-star"></i></span>
+    <span class="star"><i class="fa-solid fa-star"></i></span>
+    <span class="star"><i class="fa-solid fa-star"></i></span>
+    <span class="star"><i class="fa-regular fa-star"></i></span>
+    <span class="star"><i class="fa-solid fa-star"></i></span>
+    <span class="star"><i class="fa-regular fa-star"></i></span>
+    <span class="star"><i class="fa-solid fa-star"></i></span>
+    <span class="sparkle"><i class="fa-solid fa-sparkles"></i></span>
+    <span class="sparkle"><i class="fa-solid fa-sparkles"></i></span>
+    <span class="sparkle"><i class="fa-solid fa-sparkles"></i></span>
+    <span class="sparkle"><i class="fa-solid fa-sparkles"></i></span>
+    <span class="sparkle"><i class="fa-solid fa-sparkles"></i></span>
+  </div>
+
+  <!-- NAVEGACION LATERAL CON ICONOS SEPARADOS -->
+  <nav class="nav-lateral">
+    <a href="#bienvenida" class="nav-btn-icon icon-home">
+      <i class="fa-solid fa-house-chimney"></i>
+      <span>Inicio</span>
+      <div class="tooltip">Ir al Inicio</div>
+    </a>
+    <a href="#devocionales" class="nav-btn-icon icon-book">
+      <i class="fa-solid fa-book-bible"></i>
+      <span>28 Dias</span>
+      <div class="tooltip">Ver Devocionales</div>
+    </a>
+    <a href="recursos.html" class="nav-btn-icon icon-color">
+      <i class="fa-solid fa-palette"></i>
+      <span>Colorear</span>
+      <div class="tooltip">Hojas para Colorear</div>
+    </a>
+    <a href="#footer" class="nav-btn-icon icon-family">
+      <i class="fa-solid fa-users"></i>
+      <span>Familia</span>
+      <div class="tooltip">Acerca de Nosotros</div>
+    </a>
   </nav>
 
   <!-- HEADER -->
   <header class="site-header">
+    <div class="header-stars">
+      <span>⭐</span>
+      <span>✨</span>
+      <span>⭐</span>
+      <span>✨</span>
+    </div>
     <div class="container">
-      <div class="header-icon">
-        <i class="fa-solid fa-cross"></i>
-      </div>
+      <span class="header-icon"><i class="fa-solid fa-cross"></i></span>
       <h1>Un dia con Dios</h1>
       <p class="lead">Devocional biblico para ninos de 8 a 12 anos</p>
       <p><i class="fa-solid fa-calendar-days"></i> 28 dias de reflexiones, versiculos y actividades</p>
@@ -92,7 +76,7 @@
 
     <!-- BIENVENIDA -->
     <section id="bienvenida" class="bienvenida">
-      <div class="icon-circle icon-rosa" style="width: 70px; height: 70px; font-size: 32px; margin-bottom: 20px;">
+      <div class="icon-circle icon-rosa" style="width: 80px; height: 80px; font-size: 36px; margin: 0 auto 25px;">
         <i class="fa-solid fa-hands-holding-heart"></i>
       </div>
       <h2><i class="fa-solid fa-sparkles"></i> Bienvenidos Familias! <i class="fa-solid fa-sparkles"></i></h2>
@@ -116,37 +100,37 @@
       </div>
 
       <div class="dias-grid">
-        <a href="dias/dia1.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=1" class="dia-card">
           <div class="card-icon icon-rosa"><i class="fa-solid fa-heart"></i></div>
           <h3>Dia 1</h3>
           <p>El amor de Dios</p>
         </a>
-        <a href="dias/dia2.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=2" class="dia-card">
           <div class="card-icon icon-amarillo"><i class="fa-solid fa-gift"></i></div>
           <h3>Dia 2</h3>
           <p>La gratitud</p>
         </a>
-        <a href="dias/dia3.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=3" class="dia-card">
           <div class="card-icon icon-turquesa"><i class="fa-solid fa-shield-heart"></i></div>
           <h3>Dia 3</h3>
           <p>Confianza en Dios</p>
         </a>
-        <a href="dias/dia4.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=4" class="dia-card">
           <div class="card-icon icon-verde"><i class="fa-solid fa-hand-holding-heart"></i></div>
           <h3>Dia 4</h3>
           <p>La bondad</p>
         </a>
-        <a href="dias/dia5.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=5" class="dia-card">
           <div class="card-icon icon-morado"><i class="fa-solid fa-dove"></i></div>
           <h3>Dia 5</h3>
           <p>El perdon</p>
         </a>
-        <a href="dias/dia6.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=6" class="dia-card">
           <div class="card-icon icon-naranja"><i class="fa-solid fa-house-user"></i></div>
           <h3>Dia 6</h3>
           <p>La obediencia</p>
         </a>
-        <a href="dias/dia7.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=7" class="dia-card">
           <div class="card-icon icon-rosa"><i class="fa-solid fa-cross"></i></div>
           <h3>Dia 7</h3>
           <p>La fe</p>
@@ -165,37 +149,37 @@
       </div>
 
       <div class="dias-grid">
-        <a href="dias/dia8.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=8" class="dia-card">
           <div class="card-icon icon-turquesa"><i class="fa-solid fa-shield"></i></div>
           <h3>Dia 8</h3>
           <p>Dios me cuida</p>
         </a>
-        <a href="dias/dia9.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=9" class="dia-card">
           <div class="card-icon icon-morado"><i class="fa-solid fa-ear-listen"></i></div>
           <h3>Dia 9</h3>
           <p>Dios escucha</p>
         </a>
-        <a href="dias/dia10.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=10" class="dia-card">
           <div class="card-icon icon-amarillo"><i class="fa-solid fa-medal"></i></div>
           <h3>Dia 10</h3>
           <p>Dios me da valor</p>
         </a>
-        <a href="dias/dia11.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=11" class="dia-card">
           <div class="card-icon icon-rosa"><i class="fa-solid fa-heart-circle-check"></i></div>
           <h3>Dia 11</h3>
           <p>Dios me perdona</p>
         </a>
-        <a href="dias/dia12.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=12" class="dia-card">
           <div class="card-icon icon-verde"><i class="fa-solid fa-compass"></i></div>
           <h3>Dia 12</h3>
           <p>Dios me guia</p>
         </a>
-        <a href="dias/dia13.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=13" class="dia-card">
           <div class="card-icon icon-naranja"><i class="fa-solid fa-people-arrows"></i></div>
           <h3>Dia 13</h3>
           <p>Amar a otros</p>
         </a>
-        <a href="dias/dia14.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=14" class="dia-card">
           <div class="card-icon icon-turquesa"><i class="fa-solid fa-peace"></i></div>
           <h3>Dia 14</h3>
           <p>Dios me da paz</p>
@@ -214,37 +198,37 @@
       </div>
 
       <div class="dias-grid">
-        <a href="dias/dia15.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=15" class="dia-card">
           <div class="card-icon icon-amarillo"><i class="fa-solid fa-face-smile-beam"></i></div>
           <h3>Dia 15</h3>
           <p>Dios me da alegria</p>
         </a>
-        <a href="dias/dia16.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=16" class="dia-card">
           <div class="card-icon icon-naranja"><i class="fa-solid fa-dumbbell"></i></div>
           <h3>Dia 16</h3>
           <p>Dios me hace fuerte</p>
         </a>
-        <a href="dias/dia17.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=17" class="dia-card">
           <div class="card-icon icon-turquesa"><i class="fa-solid fa-user-group"></i></div>
           <h3>Dia 17</h3>
           <p>Dios esta conmigo</p>
         </a>
-        <a href="dias/dia18.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=18" class="dia-card">
           <div class="card-icon icon-rosa"><i class="fa-solid fa-hands-clapping"></i></div>
           <h3>Dia 18</h3>
           <p>Ser agradecido</p>
         </a>
-        <a href="dias/dia19.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=19" class="dia-card">
           <div class="card-icon icon-verde"><i class="fa-solid fa-hand-holding-dollar"></i></div>
           <h3>Dia 19</h3>
           <p>Ser generoso</p>
         </a>
-        <a href="dias/dia20.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=20" class="dia-card">
           <div class="card-icon icon-morado"><i class="fa-solid fa-rainbow"></i></div>
           <h3>Dia 20</h3>
           <p>Dios me da esperanza</p>
         </a>
-        <a href="dias/dia21.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=21" class="dia-card">
           <div class="card-icon icon-turquesa"><i class="fa-solid fa-bed"></i></div>
           <h3>Dia 21</h3>
           <p>Dios me invita a descansar</p>
@@ -263,37 +247,37 @@
       </div>
 
       <div class="dias-grid">
-        <a href="dias/dia22.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=22" class="dia-card">
           <div class="card-icon icon-turquesa"><i class="fa-solid fa-hourglass-half"></i></div>
           <h3>Dia 22</h3>
           <p>Ser paciente</p>
         </a>
-        <a href="dias/dia23.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=23" class="dia-card">
           <div class="card-icon icon-verde"><i class="fa-solid fa-scale-balanced"></i></div>
           <h3>Dia 23</h3>
           <p>Ser honesto</p>
         </a>
-        <a href="dias/dia24.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=24" class="dia-card">
           <div class="card-icon icon-rosa"><i class="fa-solid fa-heart-circle-plus"></i></div>
           <h3>Dia 24</h3>
           <p>Perdonarme</p>
         </a>
-        <a href="dias/dia25.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=25" class="dia-card">
           <div class="card-icon icon-amarillo"><i class="fa-solid fa-graduation-cap"></i></div>
           <h3>Dia 25</h3>
           <p>Dios me da sabiduria</p>
         </a>
-        <a href="dias/dia26.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=26" class="dia-card">
           <div class="card-icon icon-naranja"><i class="fa-solid fa-mountain"></i></div>
           <h3>Dia 26</h3>
           <p>Dios me ayuda</p>
         </a>
-        <a href="dias/dia27.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=27" class="dia-card">
           <div class="card-icon icon-morado"><i class="fa-solid fa-hand-sparkles"></i></div>
           <h3>Dia 27</h3>
           <p>Ser humilde</p>
         </a>
-        <a href="dias/dia28.html" class="dia-card">
+        <a href="dias/dia-dinamico.html?id=28" class="dia-card">
           <div class="card-icon icon-rosa"><i class="fa-solid fa-cake-candles"></i></div>
           <h3>Dia 28</h3>
           <p>Dios celebra conmigo</p>
@@ -315,7 +299,7 @@
       <span><i class="fa-solid fa-sun" style="color: #FF9800;"></i></span>
     </div>
     <p>Cada dia es una oportunidad para crecer en fe</p>
-    <p style="margin-top: 15px; font-size: 14px; color: #999;">
+    <p class="muted" style="margin-top: 20px;">
       <i class="fa-solid fa-envelope"></i> devocionalespequesypadres@gmail.com
     </p>
   </footer>
@@ -336,20 +320,20 @@
       document.querySelector('.back-to-top').classList.toggle('visible', window.scrollY > 400);
     });
 
-    // Marcar enlace activo en navegacion
+    // Marcar enlace activo en navegacion lateral
     const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
+        const sectionTop = section.offsetTop - 150;
         if (scrollY >= sectionTop) {
           current = section.getAttribute('id');
         }
       });
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
+      document.querySelectorAll('.nav-btn-icon').forEach(link => {
+        link.style.borderColor = 'transparent';
         if (link.getAttribute('href').includes(current)) {
-          link.classList.add('active');
+          link.style.borderColor = '#F06292';
         }
       });
     });

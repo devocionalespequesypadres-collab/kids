@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <!-- VERSICULO -->
         <section class="card seccion-versiculo">
             <h2>
-                <span class="icon-circle icon-turquesa"><i class="fa-solid fa-book-bible"></i></span>
+                <span class="icon-circle icon-turquesa"><i class="fa-solid fa-book-open"></i></span>
                 Versiculo
             </h2>
             <blockquote>

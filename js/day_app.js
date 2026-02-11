@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <section class="card seccion-versiculo">
             <h2>
                 <span class="icon-circle icon-turquesa"><i class="fa-solid fa-book-bible"></i></span>
-                <span class="emoji">📖</span> Versiculo
+                Versiculo
             </h2>
             <blockquote>
                 <p>"${day.verse_text}"</p>
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <section class="card seccion-lectura">
             <h2>
                 <span class="icon-circle icon-verde"><i class="fa-solid fa-book-open"></i></span>
-                <span class="emoji">📚</span> Lectura
+                Lectura
             </h2>
             ${day.reading_html}
         </section>
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <section class="card seccion-pensar">
             <h2>
                 <span class="icon-circle icon-azul"><i class="fa-solid fa-lightbulb"></i></span>
-                <span class="emoji">💭</span> Para pensar
+                Para pensar
             </h2>
             <ul>
                 ${(day.questions || []).map(q => `
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <section class="card seccion-actividad">
             <h2>
                 <span class="icon-circle icon-amarillo"><i class="fa-solid fa-pencil"></i></span>
-                <span class="emoji">🎯</span> Actividad
+                Actividad
             </h2>
             <p>${day.activity}</p>
         </section>
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <section class="card seccion-oracion">
             <h2>
                 <span class="icon-circle icon-rosa"><i class="fa-solid fa-hands-praying"></i></span>
-                <span class="emoji">🙏</span> Oracion
+                Oracion
             </h2>
             <p><em>${day.prayer}</em></p>
         </section>
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <section class="card seccion-espacio">
             <h2>
                 <span class="icon-circle icon-naranja"><i class="fa-solid fa-pen-fancy"></i></span>
-                <span class="emoji">✏️</span> Espacio personal
+                Espacio personal
             </h2>
             <p>Escribe o dibuja aqui lo que quieras recordar de hoy:</p>
             <textarea id="personal-notes" rows="7" placeholder="Escribe tus pensamientos, oraciones o dibujos aqui..."></textarea>
